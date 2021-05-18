@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CalculoFatorial {
+public class CalculoFatorialRecursivo {
 
 	/*
 	 * Para uma sequência matemática onde cada elemento é calculado da seguinte forma:
@@ -16,7 +16,6 @@ public class CalculoFatorial {
 		int contador = 0;
 		int dividendo;
 		int divisor;
-		int sequencia;
 		double resultado;
 		
 		System.out.println("Informe o valor de N: ");
@@ -24,21 +23,8 @@ public class CalculoFatorial {
 		
 		while(contador < valorN) {
 			
-			sequencia = contador + 1;
-			dividendo = 1;
-			
-			while (sequencia > 0) {
-				dividendo = dividendo * sequencia;
-				sequencia --;
-			}
-			
-			sequencia = valorN - contador;
-			divisor = 1;
-			
-			while (sequencia > 0) {
-				divisor = divisor * sequencia;
-				sequencia --;
-			}
+			dividendo = fatorial(contador+1);
+			divisor = fatorial(valorN - contador);
 			
 			resultado = (double) dividendo/divisor;
 					
@@ -49,8 +35,16 @@ public class CalculoFatorial {
 		}
 		
 		leitor.close();
-		
+
 	}
 
+	public static int fatorial(int numFatorial) {
+		if (numFatorial <= 1) {
+			return 1;
+		}
 
+		return (numFatorial * fatorial(numFatorial - 1));
+	}
+
+		
 }
