@@ -9,12 +9,16 @@ public class EstatisticaNotas {
 		int alunosAcimaMedia = 0;
 		int alunosAbaixoMedia = 0;
 		int contador = 0;
+		int qtdeAlunos;
+		
+		System.out.println("Informe a quantidade de alunos: ");
+		qtdeAlunos = leitor.nextInt();
 		
 		System.out.println("Informe a média: ");
 		media = leitor.nextDouble();
 		
-		while(contador < 10) {
-			System.out.println("Informe a nota: ");
+		while(contador < qtdeAlunos) {
+			System.out.println("Informe a nota do " + (contador + 1) + " aluno: ");
 			nota = leitor.nextDouble();
 			
 			if (nota >= media) {
